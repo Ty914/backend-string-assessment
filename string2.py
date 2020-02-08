@@ -21,8 +21,11 @@ Kenzie Assignment: String2
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 def verbing(s):
-    # your code here
-    return
+    if len(s) > 2 and s[-3:] == "ing":
+        s+="ly"
+    elif len(s) > 2 and s[-3:] != "ing":
+        s+="ing"
+    return s
 
 
 # E. not_bad
@@ -34,8 +37,16 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-    # your code here
-    return
+    n= s.find("not")
+    b= s.find("bad")
+    begin = s[0:n]
+    end = s[b+3:]
+    if n > 0 and b > 0 and n<b:
+        return (begin + "good" +end)
+    else:
+        return s
+
+
 
 
 # F. front_back
@@ -46,8 +57,14 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    # your code here
-    return
+    import math
+    x = math.ceil(len(a)/2)
+    y = math.ceil(len(b)/2) 
+    afront = a[0:x]
+    aback = a[x:100]
+    bfront = b[0:y]
+    bback = b[y:100]
+    return (afront + bfront + aback +bback)
 
 
 # Provided simple test() function used in main() to print
